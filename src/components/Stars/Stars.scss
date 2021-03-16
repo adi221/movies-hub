@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.stars {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &__stars {
+    color: $secondary-color;
+    font-size: 1.5rem;
+
+    span {
+      margin-right: 0.25rem;
+    }
+  }
+
+  &__rating {
+    margin-right: 0.8rem;
+    font-size: 2rem;
+  }
+}

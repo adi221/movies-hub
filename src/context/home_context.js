@@ -22,7 +22,6 @@ import { getJSON } from '../utils/helpers';
 
 const initialState = {
   config: {},
-
   movies: {
     upcoming: [],
     popular: [],

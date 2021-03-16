@@ -51,6 +51,7 @@ const Home = () => {
   return (
     <div className='home-container'>
       <Navbar />
+      <HomeHeader />
       <ViewButtons />
       <div className='home-container__main'>{mainView}</div>
       <Footer />

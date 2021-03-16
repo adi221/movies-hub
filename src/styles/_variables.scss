@@ -1,7 +1,7 @@
 $primary-color: linear-gradient(
   165deg,
-  rgb(85, 45, 114) 0%,
-  rgb(70, 37, 94) 22%
+  rgba(37, 20, 49, 1) 0%,
+  rgba(22, 17, 48, 1) 22%
 );
 $secondary-color: #eb4e7a;
 $tertiary-color: #1c262b;
@@ -17,3 +17,4 @@ $max-width: 1170px;
 
 $transition: all 0.3s linear;
 $border-radius: 10px;
+$letter-spacing: 0.2rem;

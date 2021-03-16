@@ -1,8 +1,10 @@
-@import '../../styles/carousel';
 @import '../../styles/variables';
 
 .carousel-container {
-  padding: 1rem 0.2rem 0;
+  // padding: 1rem 0.2rem 0;
+  width: 90vw;
+  max-width: $max-width;
+  margin: 0 auto;
 
   &__separator {
     background-image: radial-gradient(
@@ -12,6 +14,7 @@
     );
     border: none;
     height: 2px;
+    margin: 2rem 0;
   }
 
   .swiper-container {
@@ -22,11 +25,16 @@
     &__title {
       color: $primary-font-color;
       font-family: $tertiary-font;
-      font-size: 1.8rem;
+      font-size: 2.3rem;
       font-weight: bold;
       letter-spacing: 0.4rem;
-      margin-bottom: 2rem;
+      margin: 2rem 0 0.3rem 0;
       text-transform: uppercase;
     }
+  }
+
+  .swiper-slide {
+    display: block;
+    padding-top: 4rem;
   }
 }

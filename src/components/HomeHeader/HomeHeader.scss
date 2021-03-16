@@ -1,0 +1,46 @@
+@import '../../styles/variables';
+
+.home-header-container {
+  overflow: hidden;
+  max-height: 93vh;
+  margin-bottom: 2.5rem;
+
+  .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+
+    .swiper-slide {
+      align-items: center;
+      background-size: cover, cover !important;
+      display: flex;
+      font-size: 18px;
+      justify-content: center;
+      height: 93vh;
+      width: 100%;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+
+      &__textbox {
+        position: absolute;
+        left: 40px;
+        bottom: 40px;
+        color: $primary-font-color;
+        text-align: left;
+      }
+      &__latest {
+        text-transform: uppercase;
+        letter-spacing: $letter-spacing;
+        margin-bottom: 1rem;
+      }
+      &__title {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
