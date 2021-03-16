@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.single-item-preview {
+  margin: 0 1rem;
+  opacity: 0.85;
+  position: relative;
+  transition: $transition;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  &__img {
+    border-radius: $border-radius;
+    height: 190px;
+    width: auto;
+    object-fit: cover;
+  }
+
+  &__title {
+    letter-spacing: 1.5px;
+    color: $secondary-font-color;
+  }
+
+  &__rating {
+    position: absolute;
+    font-size: 1.2rem;
+    left: 0;
+    top: 20px;
+    padding: 0.5rem 0.8rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $primary-font-color;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  a,
+  a:active,
+  a:visited,
+  a:hover {
+    text-decoration: none;
+    color: initial;
+  }
+}

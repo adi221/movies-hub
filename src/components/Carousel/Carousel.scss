@@ -1,0 +1,32 @@
+@import '../../styles/carousel';
+@import '../../styles/variables';
+
+.carousel-container {
+  padding: 1rem 0.2rem 0;
+
+  &__separator {
+    background-image: radial-gradient(
+      circle,
+      rgba(210, 208, 208, 0.19091386554621848) 0%,
+      rgba(210, 208, 208, 0) 90%
+    );
+    border: none;
+    height: 2px;
+  }
+
+  .swiper-container {
+    font-family: $secondary-font;
+    height: 360px;
+    width: 100%;
+
+    &__title {
+      color: $primary-font-color;
+      font-family: $tertiary-font;
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 0.4rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+  }
+}

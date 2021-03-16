@@ -1,0 +1,4 @@
+export const GET_HOME_DATA_SUCCESS = 'GET_HOME_DATA_SUCCESS';
+export const SET_MOVIES_VIEW = 'SET_MOVIES_VIEW';
+export const SET_TV_VIEW = 'SET_TV_VIEW';
+export const SET_CONFIG = 'SET_CONFIG';

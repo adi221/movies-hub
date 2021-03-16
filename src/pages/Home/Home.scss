@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.home-container {
+  background: $primary-color;
+
+  &__main {
+    width: 90vw;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+}

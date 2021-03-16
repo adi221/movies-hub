@@ -1,0 +1,19 @@
+$primary-color: linear-gradient(
+  165deg,
+  rgb(85, 45, 114) 0%,
+  rgb(70, 37, 94) 22%
+);
+$secondary-color: #eb4e7a;
+$tertiary-color: #1c262b;
+
+$primary-font-color: #fff;
+$secondary-font-color: rgba(255, 255, 255, 0.9);
+
+$primary-font: 'Roboto', sans-serif;
+$secondary-font: 'Lato', sans-serif;
+$tertiary-font: 'Alegreya Sans', sans-serif;
+
+$max-width: 1170px;
+
+$transition: all 0.3s linear;
+$border-radius: 10px;

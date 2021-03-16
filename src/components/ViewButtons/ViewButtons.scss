@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+
+.btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px;
+  column-gap: 15px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  width: 90%;
+  max-width: $max-width;
+
+  button {
+    background: none;
+    border: none;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 86, 132, 0.4) 0%,
+        rgba(83, 50, 201, 0.4) 68%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 86, 132, 0.4) 0%,
+        rgba(83, 50, 201, 0.4) 68%
+      );
+    border-image-slice: 1;
+    border-left: 3px solid rgba(255, 86, 132, 0.4);
+    border-right: 3px solid rgba(83, 50, 201, 0.4);
+    border-radius: 10px;
+    background-position: 0 0, 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+    color: $primary-font-color;
+    cursor: pointer;
+    display: block;
+    font-family: $tertiary-font;
+    font-weight: bold;
+    letter-spacing: 0.6rem;
+    outline: none;
+    padding: 0.3rem;
+    text-transform: uppercase;
+  }
+}
