@@ -1,22 +1,45 @@
 import React from 'react';
 import './Navbar.scss';
 import { MdExplore } from 'react-icons/md';
-import { FcFilm } from 'react-icons/fc';
-import { FaHome } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FcFilmReel } from 'react-icons/fc';
+import { FaHome, FaSearch } from 'react-icons/fa';
+import { Link, useHistory } from 'react-router-dom';
+import { useSearchContext } from '../../context/search_context';
 
 const Navbar = () => {
+  const { query, changeQuery, fetchData } = useSearchContext();
+  const history = useHistory();
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log('You are the best');
+    let path = `/search-results/${query}`;
+    history.push(path);
+    fetchData();
+  };
+
   return (
     <nav>
       <div className='nav-center'>
         <div className='nav-header'>
           <h1 className='nav-header__title'>
-            <FcFilm /> Movies<span>Hub</span>
+            <FcFilmReel /> Movies<span>Hub</span>
           </h1>
+
+          <form className='nav-header__form' onSubmit={handleSubmit}>
+            <input
+              className='nav-header__form-input'
+              type='text'
+              placeholder='Search...'
+              value={query}
+              onChange={e => changeQuery(e.target.value)}
+            />
+
+            <button className='nav-header__form-btn' type='submit'>
+              <FaSearch />
+            </button>
+          </form>
         </div>
-        <div className='search'>
-          <input type='text' placeholder='Search...' />
-        </div>
+
         <ul className='links'>
           <Link to='/'>
             <li>

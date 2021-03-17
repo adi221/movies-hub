@@ -1,7 +1,7 @@
 import React from 'react';
 import SingleItemPreview from '../SingleItemPreview/SingleItemPreview';
 import './Carousel.scss';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Scrollbar } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
@@ -9,7 +9,7 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
 
 const Carousel = ({ title, items, type }) => {
-  SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+  SwiperCore.use([Navigation, Pagination, Scrollbar]);
   return (
     <div className='carousel-container'>
       <div className='swiper-container'>

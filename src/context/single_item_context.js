@@ -21,47 +21,73 @@ const SingleItemContext = React.createContext();
 
 const SingleItemProvider = ({ children }) => {
   const [item, setItem] = useState({});
+  const [person, setPerson] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchMovie = async id => {
-    const data = await Promise.all([
-      getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieDetails}`),
-      getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieCredits}`),
-      getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieTrailers}`),
-      getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieReviews}`),
-    ]);
-    const [details, credits, trailers, reviews] = data;
-    setItem({
-      details,
-      credits: credits.cast,
-      trailers: trailers.results,
-      reviews: reviews.results,
-    });
+    setIsLoading(true);
+    try {
+      const data = await Promise.all([
+        getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieDetails}`),
+        getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieCredits}`),
+        getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieTrailers}`),
+        getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieReviews}`),
+      ]);
+      const [details, credits, trailers, reviews] = data;
+      setItem({
+        details,
+        credits: credits.cast,
+        trailers: trailers.results,
+        reviews: reviews.results,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    setIsLoading(false);
   };
 
   const fetchTv = async id => {
-    const data = await Promise.all([
-      getJSONSingleItem(`${singleTvForeword}${id}${singleTvDetails}`),
-      getJSONSingleItem(`${singleTvForeword}${id}${singleTvCredits}`),
-      getJSONSingleItem(`${singleTvForeword}${id}${singleTvTrailers}`),
-      getJSONSingleItem(`${singleTvForeword}${id}${singleTvReviews}`),
-    ]);
-    const [details, credits, trailers, reviews] = data;
-    setItem({
-      details,
-      credits: credits.cast,
-      trailers: trailers.results,
-      reviews: reviews.results,
-    });
+    setIsLoading(true);
+    try {
+      const data = await Promise.all([
+        getJSONSingleItem(`${singleTvForeword}${id}${singleTvDetails}`),
+        getJSONSingleItem(`${singleTvForeword}${id}${singleTvCredits}`),
+        getJSONSingleItem(`${singleTvForeword}${id}${singleTvTrailers}`),
+        getJSONSingleItem(`${singleTvForeword}${id}${singleTvReviews}`),
+      ]);
+      const [details, credits, trailers, reviews] = data;
+      setItem({
+        details,
+        credits: credits.cast,
+        trailers: trailers.results,
+        reviews: reviews.results,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    setIsLoading(false);
   };
 
   const fetchPerson = async id => {
-    const data = await Promise.all([
-      getJSONSingleItem(`${singlePersonForeword}${id}${singlePersonDetails}`),
-      getJSONSingleItem(
-        `${singlePersonForeword}${id}${singlePersonCombinedCredits}`
-      ),
-    ]);
-    console.log(data);
+    setIsLoading(true);
+    try {
+      const data = await Promise.all([
+        getJSONSingleItem(`${singlePersonForeword}${id}${singlePersonDetails}`),
+        getJSONSingleItem(
+          `${singlePersonForeword}${id}${singlePersonCombinedCredits}`
+        ),
+      ]);
+      const [details, credits] = data;
+      setPerson({
+        details,
+        cast: credits.cast.slice(0, 25),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    setIsLoading(false);
   };
 
   const fetchData = (id, type) => {
@@ -75,7 +101,7 @@ const SingleItemProvider = ({ children }) => {
   };
 
   return (
-    <SingleItemContext.Provider value={{ fetchData, item }}>
+    <SingleItemContext.Provider value={{ fetchData, item, isLoading, person }}>
       {children}
     </SingleItemContext.Provider>
   );

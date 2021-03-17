@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSearchContext } from '../../context/search_context';
+import './SearchPage.scss';
+import { useParams } from 'react-router-dom';
 
 const SearchPage = () => {
-  return <h1>Search Page</h1>;
+  const { id } = useParams();
+  const { data } = useSearchContext();
+
+  return <>Search Page</>;
 };
 
 export default SearchPage;

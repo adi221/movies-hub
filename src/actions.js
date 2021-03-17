@@ -2,3 +2,7 @@ export const GET_HOME_DATA_SUCCESS = 'GET_HOME_DATA_SUCCESS';
 export const SET_MOVIES_VIEW = 'SET_MOVIES_VIEW';
 export const SET_TV_VIEW = 'SET_TV_VIEW';
 export const SET_CONFIG = 'SET_CONFIG';
+export const SET_LOADING_TRUE = 'SET_LOADING_TRUE';
+export const SET_LOADING_FALSE = 'SET_LOADING_FALSE';
+export const SET_QUERY = 'SET_QUERY';
+export const SET_SEARCH_DATA = 'SET_SEARCH_DATA';

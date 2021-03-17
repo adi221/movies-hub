@@ -6,6 +6,7 @@ import SingleItemPreview from './SingleItemPreview/SingleItemPreview';
 import ViewButtons from './ViewButtons/ViewButtons';
 import SingleItemHeader from './SingleItemHeader/SingleItemHeader';
 import TrailersCarousel from './TrailersCarousel/TrailersCarousel';
+import Loading from './Loading/Loading';
 
 export {
   Carousel,
@@ -16,4 +17,5 @@ export {
   ViewButtons,
   SingleItemHeader,
   TrailersCarousel,
+  Loading,
 };

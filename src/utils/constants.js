@@ -28,3 +28,7 @@ export const singleTvReviews = `/reviews?api_key=${process.env.REACT_APP_TMDB_KE
 export const singlePersonForeword = 'https://api.themoviedb.org/3/person/';
 export const singlePersonDetails = `?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
 export const singlePersonCombinedCredits = `/combined_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
+
+// Search results
+export const searchResultsForeword = `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
+// &query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false

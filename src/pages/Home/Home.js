@@ -4,13 +4,18 @@ import {
   ViewButtons,
   Navbar,
   HomeHeader,
-  Footer,
   Carousel,
+  Loading,
+  Footer,
 } from '../../components';
 import './Home.scss';
 
 const Home = () => {
-  const { movies, tv, movies_view } = useHomeContext();
+  const { movies, tv, movies_view, loading } = useHomeContext();
+
+  if (loading) {
+    return <Loading />;
+  }
 
   let mainView;
   if (movies_view) {

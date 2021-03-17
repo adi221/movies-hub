@@ -16,6 +16,8 @@ import {
   SET_MOVIES_VIEW,
   GET_HOME_DATA_SUCCESS,
   SET_CONFIG,
+  SET_LOADING_TRUE,
+  SET_LOADING_FALSE,
 } from '../actions';
 
 import { getJSON } from '../utils/helpers';
@@ -35,6 +37,7 @@ const initialState = {
     top_rated: [],
   },
   movies_view: true,
+  loading: true,
 };
 
 const HomeContext = React.createContext();
@@ -43,6 +46,7 @@ const HomeProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchData = async () => {
+    setLoadingTrue();
     try {
       const data = await Promise.all([
         getJSON(moviesUpcomingUrl),
@@ -58,9 +62,11 @@ const HomeProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+    setLoadingFalse();
   };
 
   const fetchConfig = async () => {
+    setLoadingTrue();
     try {
       fetch(configUrl)
         .then(res => res.json())
@@ -68,6 +74,7 @@ const HomeProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+    setLoadingFalse();
   };
 
   const setMoviesView = () => {
@@ -77,6 +84,14 @@ const HomeProvider = ({ children }) => {
   const setTvView = () => {
     dispatch({ type: SET_TV_VIEW });
   };
+
+  function setLoadingTrue() {
+    dispatch({ type: SET_LOADING_TRUE });
+  }
+
+  function setLoadingFalse() {
+    dispatch({ type: SET_LOADING_FALSE });
+  }
 
   useEffect(() => {
     fetchData();

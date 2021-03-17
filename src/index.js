@@ -5,11 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HomeProvider from './context/home_context';
 import SingleItemProvider from './context/single_item_context';
+import SearchProvider from './context/search_context';
 
 ReactDOM.render(
   <HomeProvider>
     <SingleItemProvider>
-      <App />
+      <SearchProvider>
+        <App />
+      </SearchProvider>
     </SingleItemProvider>
   </HomeProvider>,
   document.getElementById('root')

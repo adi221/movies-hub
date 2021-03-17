@@ -1,34 +1,46 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSingleItemContext } from '../../context/single_item_context';
+import { useHomeContext } from '../../context/home_context';
 import { SingleItemHeader } from '../../components';
 import './SingleItem.scss';
-import { Carousel, TrailersCarousel } from '../../components';
+import { Carousel, TrailersCarousel, Loading } from '../../components';
 import { IoIosArrowForward } from 'react-icons/io';
 
 const SingleItem = () => {
   const { type, id } = useParams();
-  const { fetchData, item } = useSingleItemContext();
+  const { fetchData, item, isLoading, person } = useSingleItemContext();
+  const { loading } = useHomeContext();
 
   useEffect(() => {
     fetchData(id, type);
     //eslint-disable-next-line
   }, [id, type]);
 
-  if (!item.details) {
-    return <h1>Loading</h1>;
+  if (loading || isLoading || (type === 'people' && !person.details)) {
+    return <Loading />;
   }
 
   return (
     <div className='single-item'>
-      <SingleItemHeader item={item} />
+      <SingleItemHeader item={item} showPeople={type === 'people'} />
       <div className='single-item-main'>
         <div className='single-item-main__summary'>
-          <h2 className='single-item-main__summary-title'>Summary</h2>
-          <p>{item.details.overview}</p>
+          <h2 className='single-item-main__summary-title'>{`${
+            type === 'people' ? 'biography' : 'summary'
+          }`}</h2>
+          <p>{`${
+            type === 'people' ? person.details.biography : item.details.overview
+          }`}</p>
           <hr />
         </div>
-
+        {type === 'people' && (
+          <Carousel
+            title='popular roles'
+            type={`${person.cast.media_type === 'movie' ? 'movies' : 'tv'}`}
+            items={person.cast}
+          />
+        )}
         <Carousel title='cast' type='people' items={item.credits} />
         {item.trailers.length > 0 && (
           <TrailersCarousel title='trailers' items={item.trailers} />
@@ -51,7 +63,7 @@ const SingleItem = () => {
                   >
                     <h2>{name ? name : 'Arthur'}</h2>
                     <p>{content.substring(0, 300)}...</p>
-                    <a href={url}>
+                    <a href={url} target='_blank' rel='noopener noreferrer'>
                       Read full review <IoIosArrowForward />
                     </a>
                   </article>

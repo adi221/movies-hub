@@ -3,6 +3,8 @@ import {
   SET_MOVIES_VIEW,
   GET_HOME_DATA_SUCCESS,
   SET_CONFIG,
+  SET_LOADING_FALSE,
+  SET_LOADING_TRUE,
 } from '../actions';
 
 const home_reducer = (state, action) => {
@@ -41,6 +43,12 @@ const home_reducer = (state, action) => {
   }
   if (action.type === SET_CONFIG) {
     return { ...state, config: action.payload };
+  }
+  if (action.type === SET_LOADING_TRUE) {
+    return { ...state, loading: true };
+  }
+  if (action.type === SET_LOADING_FALSE) {
+    return { ...state, loading: false };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
