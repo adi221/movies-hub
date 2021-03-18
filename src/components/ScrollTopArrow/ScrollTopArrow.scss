@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+
+.scrollTop {
+  position: fixed;
+  background-color: transparent;
+  color: $primary-font-color;
+  bottom: 20px;
+  right: 7rem;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+  opacity: 0.5;
+  display: none;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: 1240px) {
+  .scrollTop {
+    display: block;
+  }
+}

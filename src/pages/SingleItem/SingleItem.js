@@ -43,7 +43,7 @@ const SingleItem = () => {
             items={person.cast}
           />
         )}
-        {type !== 'people' && (
+        {type !== 'people' && item.credits.length > 0 && (
           <Carousel title='cast' type='people' items={item.credits} />
         )}
 

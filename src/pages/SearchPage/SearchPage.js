@@ -10,23 +10,15 @@ import {
 } from '../../components';
 
 const SearchPage = () => {
-  const { id } = useParams();
   const {
     data,
     loading,
     query,
-    changeQuery,
     nextPage,
     prevPage,
     page,
     total_pages: total,
   } = useSearchContext();
-
-  // useEffect(() => {
-  //   if (id !== query) {
-  //     changeQuery(id);
-  //   }
-  // }, []);
 
   if (loading) {
     return <Loading />;

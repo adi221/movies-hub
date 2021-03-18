@@ -9,6 +9,7 @@ import {
   SET_SEARCH_DATA,
   NEXT_PAGE,
   PREV_PAGE,
+  SET_PAGE_1,
 } from '../actions';
 
 const SearchContext = React.createContext();
@@ -58,11 +59,22 @@ const SearchProvider = ({ children }) => {
     dispatch({ type: SET_LOADING_FALSE });
   }
 
+  function setPageTo1() {
+    dispatch({ type: SET_PAGE_1 });
+  }
+
   useEffect(() => fetchData(), [state.page]);
 
   return (
     <SearchContext.Provider
-      value={{ ...state, changeQuery, fetchData, nextPage, prevPage }}
+      value={{
+        ...state,
+        changeQuery,
+        fetchData,
+        nextPage,
+        prevPage,
+        setPageTo1,
+      }}
     >
       {children}
     </SearchContext.Provider>

@@ -53,7 +53,3 @@ const SingleItemPreview = ({
 };
 
 export default SingleItemPreview;
-
-// src={`${secure_base_url}w154${
-//   poster_path ? poster_path : profile_path
-// } `}

@@ -5,6 +5,7 @@ import {
   SET_SEARCH_DATA,
   NEXT_PAGE,
   PREV_PAGE,
+  SET_PAGE_1,
 } from '../actions';
 
 const search_reducer = (state, action) => {
@@ -34,6 +35,9 @@ const search_reducer = (state, action) => {
       newPage = state.total_pages;
     }
     return { ...state, page: newPage };
+  }
+  if (action.type === SET_PAGE_1) {
+    return { ...state, page: 1 };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };

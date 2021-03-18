@@ -13,16 +13,27 @@ const SingleItemHeader = ({ item, showPeople }) => {
     config: { secure_base_url },
   } = useHomeContext();
   const { person, isLoading } = useSingleItemContext();
+  let name, title, image, status, lang, bg, rating;
 
-  let {
-    backdrop_path: bg,
-    original_language: lang,
-    title,
-    name,
-    poster_path: image,
-    vote_average: rating,
-    status,
-  } = item.details;
+  // let {
+  //   backdrop_path: bg,
+  //   original_language: lang,
+  //   title,
+  //   name,
+  //   poster_path: image,
+  //   vote_average: rating,
+  //   status,
+  // } = item.details;
+
+  if (item.details) {
+    bg = item.details.backdrop_path;
+    lang = item.details.original_language;
+    title = item.details.title;
+    name = item.details.name;
+    image = item.details.poster_path;
+    rating = item.details.vote_average;
+    status = item.details.status;
+  }
 
   const history = useHistory();
 
@@ -35,7 +46,9 @@ const SingleItemHeader = ({ item, showPeople }) => {
     title = person.details.name;
     image = person.details.profile_path;
     status = person.details.known_for_department;
-    lang = person.details.birthday.split('-').reverse().join('-');
+    lang = person.details.birthday
+      ? person.details.birthday.split('-').reverse().join('-')
+      : '';
   }
 
   let backgroundStyle = bg

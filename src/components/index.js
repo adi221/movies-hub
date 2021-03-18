@@ -9,6 +9,7 @@ import TrailersCarousel from './TrailersCarousel/TrailersCarousel';
 import Loading from './Loading/Loading';
 import PaginationButtons from './PaginationButtons/PaginationButtons';
 import Sort from './Sort/Sort';
+import ScrollTopArrow from './ScrollTopArrow/ScrollTopArrow';
 export {
   Carousel,
   Navbar,
@@ -21,4 +22,5 @@ export {
   Loading,
   PaginationButtons,
   Sort,
+  ScrollTopArrow,
 };

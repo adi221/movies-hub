@@ -7,13 +7,13 @@ import { Link, useHistory } from 'react-router-dom';
 import { useSearchContext } from '../../context/search_context';
 
 const Navbar = () => {
-  const { query, changeQuery, fetchData } = useSearchContext();
+  const { query, changeQuery, fetchData, setPageTo1 } = useSearchContext();
   const history = useHistory();
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('You are the best');
-    let path = `/search-results/${query}`;
+    let path = '/search-results';
     history.push(path);
+    setPageTo1();
     fetchData();
   };
 
