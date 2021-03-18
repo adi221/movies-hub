@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.sort-container {
+  display: flex;
+  max-width: $max-width;
+  width: 90vw;
+  display: block;
+  margin: 2rem auto;
+
+  &__item {
+    background-color: #272d42;
+    color: $primary-font-color;
+    font-size: 1.8rem;
+    border-radius: 5rem;
+    padding: 1rem 2rem;
+    margin: 1rem 1rem 1rem 0;
+    display: inline-block;
+    cursor: pointer;
+    font-family: $tertiary-font;
+    transition: $transition;
+  }
+
+  .active-item {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 86, 132, 0.4) 0%,
+        rgba(83, 50, 201, 0.4) 68%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 86, 132, 0.4) 0%,
+        rgba(83, 50, 201, 0.4) 68%
+      );
+  }
+}

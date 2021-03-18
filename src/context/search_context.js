@@ -1,12 +1,14 @@
 import React, { useContext, useReducer, useEffect } from 'react';
 import reducer from '../reducers/search_reducer';
 import { searchResultsForeword } from '../utils/constants';
-import { getJSON } from '../utils/helpers';
+import { getJSONSingleItem } from '../utils/helpers';
 import {
   SET_LOADING_TRUE,
   SET_LOADING_FALSE,
   SET_QUERY,
   SET_SEARCH_DATA,
+  NEXT_PAGE,
+  PREV_PAGE,
 } from '../actions';
 
 const SearchContext = React.createContext();
@@ -14,6 +16,7 @@ const SearchContext = React.createContext();
 const initialState = {
   query: '',
   page: 1,
+  total_pages: null,
   data: [],
   loading: false,
 };
@@ -23,8 +26,9 @@ const SearchProvider = ({ children }) => {
 
   const fetchData = async () => {
     setLoadingTrue();
+
     try {
-      const data = await getJSON(
+      const data = await getJSONSingleItem(
         `${searchResultsForeword}&query=${state.query}&page=${state.page}&include_adult=false`
       );
       dispatch({ type: SET_SEARCH_DATA, payload: data });
@@ -38,6 +42,14 @@ const SearchProvider = ({ children }) => {
     dispatch({ type: SET_QUERY, payload: input });
   };
 
+  const nextPage = () => {
+    dispatch({ type: NEXT_PAGE });
+  };
+
+  const prevPage = () => {
+    dispatch({ type: PREV_PAGE });
+  };
+
   function setLoadingTrue() {
     dispatch({ type: SET_LOADING_TRUE });
   }
@@ -46,8 +58,12 @@ const SearchProvider = ({ children }) => {
     dispatch({ type: SET_LOADING_FALSE });
   }
 
+  useEffect(() => fetchData(), [state.page]);
+
   return (
-    <SearchContext.Provider value={{ ...state, changeQuery, fetchData }}>
+    <SearchContext.Provider
+      value={{ ...state, changeQuery, fetchData, nextPage, prevPage }}
+    >
       {children}
     </SearchContext.Provider>
   );

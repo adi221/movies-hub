@@ -12,6 +12,8 @@ const SingleItem = () => {
   const { fetchData, item, isLoading, person } = useSingleItemContext();
   const { loading } = useHomeContext();
 
+  console.log(type, id);
+
   useEffect(() => {
     fetchData(id, type);
     //eslint-disable-next-line
@@ -37,15 +39,18 @@ const SingleItem = () => {
         {type === 'people' && (
           <Carousel
             title='popular roles'
-            type={`${person.cast.media_type === 'movie' ? 'movies' : 'tv'}`}
+            type={`${person.cast.media_type === 'tv' ? 'tv' : 'movies'}`}
             items={person.cast}
           />
         )}
-        <Carousel title='cast' type='people' items={item.credits} />
-        {item.trailers.length > 0 && (
+        {type !== 'people' && (
+          <Carousel title='cast' type='people' items={item.credits} />
+        )}
+
+        {type !== 'people' && item.trailers.length > 0 && (
           <TrailersCarousel title='trailers' items={item.trailers} />
         )}
-        {item.reviews.length > 0 && (
+        {type !== 'people' && item.reviews.length > 0 && (
           <div className='single-item-main__reviews'>
             <h2 className='single-item-main__summary-title'>Popular reviews</h2>
             <div className='single-item-main__reviews-container'>

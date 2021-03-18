@@ -82,6 +82,7 @@ const HomeProvider = ({ children }) => {
   };
 
   const setTvView = () => {
+    console.log('Works Baby');
     dispatch({ type: SET_TV_VIEW });
   };
 
@@ -99,7 +100,7 @@ const HomeProvider = ({ children }) => {
   }, []);
 
   return (
-    <HomeContext.Provider value={{ ...state, setTvView, setMoviesView }}>
+    <HomeContext.Provider value={{ ...state, setMoviesView, setTvView }}>
       {children}
     </HomeContext.Provider>
   );

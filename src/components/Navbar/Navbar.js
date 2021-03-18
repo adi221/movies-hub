@@ -21,9 +21,11 @@ const Navbar = () => {
     <nav>
       <div className='nav-center'>
         <div className='nav-header'>
-          <h1 className='nav-header__title'>
-            <FcFilmReel /> Movies<span>Hub</span>
-          </h1>
+          <Link to='/'>
+            <h1 className='nav-header__title'>
+              <FcFilmReel /> Movies<span>Hub</span>
+            </h1>
+          </Link>
 
           <form className='nav-header__form' onSubmit={handleSubmit}>
             <input
@@ -50,7 +52,7 @@ const Navbar = () => {
           <Link to='/dicover'>
             <li>
               <MdExplore />
-              Explore
+              Discover
             </li>
           </Link>
         </ul>

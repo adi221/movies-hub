@@ -13,6 +13,7 @@ const SingleItemHeader = ({ item, showPeople }) => {
     config: { secure_base_url },
   } = useHomeContext();
   const { person, isLoading } = useSingleItemContext();
+
   let {
     backdrop_path: bg,
     original_language: lang,
@@ -22,6 +23,7 @@ const SingleItemHeader = ({ item, showPeople }) => {
     vote_average: rating,
     status,
   } = item.details;
+
   const history = useHistory();
 
   if (isLoading || (showPeople && !person.details)) {
@@ -36,14 +38,22 @@ const SingleItemHeader = ({ item, showPeople }) => {
     lang = person.details.birthday.split('-').reverse().join('-');
   }
 
+  let backgroundStyle = bg
+    ? `linear-gradient(
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.6)
+    ) , #fff url(${secure_base_url}${'w1280'}${bg}) center top no-repeat`
+    : `linear-gradient(
+      135deg,
+      rgba(235, 78, 122, 1) 0%,
+      rgba(28, 38, 43, 1) 71%
+    )`;
+
   return (
     <header
       className='single-item-header'
       style={{
-        background: `linear-gradient(
-rgba(0, 0, 0, 0.6),
-rgba(0, 0, 0, 0.6)
-) , #fff url(${secure_base_url}${'w1280'}${bg}) center top no-repeat`,
+        background: backgroundStyle,
       }}
     >
       <div className='single-item-header__center'>
@@ -80,3 +90,10 @@ rgba(0, 0, 0, 0.6)
 };
 
 export default SingleItemHeader;
+
+// style={{
+//   background: `linear-gradient(
+// rgba(0, 0, 0, 0.6),
+// rgba(0, 0, 0, 0.6)
+// ) , #fff url(${secure_base_url}${'w1280'}${bg}) center top no-repeat`,
+// }}

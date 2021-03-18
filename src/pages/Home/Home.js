@@ -11,7 +11,14 @@ import {
 import './Home.scss';
 
 const Home = () => {
-  const { movies, tv, movies_view, loading } = useHomeContext();
+  const {
+    movies,
+    tv,
+    movies_view,
+    loading,
+    setMoviesView,
+    setTvView,
+  } = useHomeContext();
 
   if (loading) {
     return <Loading />;
@@ -57,7 +64,7 @@ const Home = () => {
     <div className='home-container'>
       <Navbar />
       <HomeHeader />
-      <ViewButtons />
+      <ViewButtons clickedMovies={setMoviesView} clickedTv={setTvView} />
       <div className='home-container__main'>{mainView}</div>
       <Footer />
     </div>

@@ -91,6 +91,7 @@ const SingleItemProvider = ({ children }) => {
   };
 
   const fetchData = (id, type) => {
+    setIsLoading(true);
     if (type === 'movies') {
       fetchMovie(id);
     } else if (type === 'tv') {
@@ -101,7 +102,9 @@ const SingleItemProvider = ({ children }) => {
   };
 
   return (
-    <SingleItemContext.Provider value={{ fetchData, item, isLoading, person }}>
+    <SingleItemContext.Provider
+      value={{ fetchData, item, isLoading, person, setIsLoading }}
+    >
       {children}
     </SingleItemContext.Provider>
   );

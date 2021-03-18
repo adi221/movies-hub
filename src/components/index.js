@@ -7,7 +7,8 @@ import ViewButtons from './ViewButtons/ViewButtons';
 import SingleItemHeader from './SingleItemHeader/SingleItemHeader';
 import TrailersCarousel from './TrailersCarousel/TrailersCarousel';
 import Loading from './Loading/Loading';
-
+import PaginationButtons from './PaginationButtons/PaginationButtons';
+import Sort from './Sort/Sort';
 export {
   Carousel,
   Navbar,
@@ -18,4 +19,6 @@ export {
   SingleItemHeader,
   TrailersCarousel,
   Loading,
+  PaginationButtons,
+  Sort,
 };

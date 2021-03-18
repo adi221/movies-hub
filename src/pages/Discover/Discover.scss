@@ -1,10 +1,10 @@
 @import '../../styles/variables';
 
-.search-page-container {
-  background: $primary-color;
+.discover-page-container {
   margin-top: 7rem;
-  padding: 6rem 0 8rem;
+  background: $quaternary-color;
   min-height: calc(100vh - 7rem);
+  padding: 6rem 0 8rem;
 
   &__title {
     text-align: center;
@@ -28,7 +28,7 @@
   &__main {
     width: 90vw;
     max-width: $max-width;
-    margin: 0 auto;
+    margin: 4rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 2rem;

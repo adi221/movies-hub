@@ -4,6 +4,7 @@ import { useHomeContext } from '../../context/home_context';
 import './SingleItemPreview.scss';
 import { FaStar } from 'react-icons/fa';
 import './SingleItemPreview.scss';
+import backupPic from './images/backup.png';
 
 const SingleItemPreview = ({
   type,
@@ -17,7 +18,6 @@ const SingleItemPreview = ({
 }) => {
   const {
     config: { secure_base_url },
-    movies_view,
   } = useHomeContext();
 
   return (
@@ -25,9 +25,13 @@ const SingleItemPreview = ({
       <Link to={`/details/${type}/${id}`}>
         <img
           className='single-item-preview__img'
-          src={`${secure_base_url}w154${
-            poster_path ? poster_path : profile_path
-          } `}
+          src={`${
+            profile_path || poster_path
+              ? `${secure_base_url}w154${
+                  poster_path ? poster_path : profile_path
+                } `
+              : backupPic
+          }`}
           alt={title}
         />
         {/* vote_average to check if the preview is for persons or tv/ movies */}
@@ -50,4 +54,6 @@ const SingleItemPreview = ({
 
 export default SingleItemPreview;
 
-// movies_view &&
+// src={`${secure_base_url}w154${
+//   poster_path ? poster_path : profile_path
+// } `}

@@ -31,4 +31,10 @@ export const singlePersonCombinedCredits = `/combined_credits?api_key=${process.
 
 // Search results
 export const searchResultsForeword = `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
-// &query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false
+// &query=${query}&page=${page}&include_adult=false
+
+// Discover
+export const discoverForeword = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
+export const discoverMovieUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
+export const discoverTvUrl = `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`;
+// &sort_by=${sort}&include_adult=false&include_video=false&page=${page}

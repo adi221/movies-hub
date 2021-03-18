@@ -6,12 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import HomeProvider from './context/home_context';
 import SingleItemProvider from './context/single_item_context';
 import SearchProvider from './context/search_context';
+import DiscoverProvider from './context/discover_context';
 
 ReactDOM.render(
   <HomeProvider>
     <SingleItemProvider>
       <SearchProvider>
-        <App />
+        <DiscoverProvider>
+          <App />
+        </DiscoverProvider>
       </SearchProvider>
     </SingleItemProvider>
   </HomeProvider>,
