@@ -1,1 +1,12 @@
 @import '../../styles/variables';
+
+.search-page-container {
+  background: $primary-color;
+  margin-top: 7rem;
+
+  &__main {
+    width: 90vw;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+}
