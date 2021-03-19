@@ -3,6 +3,7 @@
 
 nav {
   position: fixed;
+  z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
@@ -136,7 +137,6 @@ nav {
 
 @media (max-width: 900px) {
   nav {
-    z-index: 999;
     .nav-center {
       display: block;
       width: 100%;
