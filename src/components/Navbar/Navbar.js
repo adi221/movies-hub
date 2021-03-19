@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.scss';
 import { MdExplore } from 'react-icons/md';
 import { FcFilmReel } from 'react-icons/fc';
@@ -18,6 +18,16 @@ const Navbar = () => {
     setPageTo1();
     fetchData();
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.querySelectorAll('.links li').forEach(link => {
+        link.classList.add('fadeInLeft');
+      });
+      document.querySelector('.nav-header__title').classList.add('fadeInLeft');
+      document.querySelector('.nav-header__form').classList.add('bounce');
+    }, 0);
+  }, []);
 
   return (
     <nav>

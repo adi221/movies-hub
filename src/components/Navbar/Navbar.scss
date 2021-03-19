@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/animations';
 
 nav {
   position: absolute;
@@ -8,6 +9,12 @@ nav {
   height: 7rem;
   background-color: $tertiary-color;
   font-family: $secondary-font;
+
+  .bounce,
+  .fadeInLeft {
+    animation-duration: 3s;
+    animation-delay: 1s;
+  }
 
   a,
   a:active,
@@ -129,6 +136,8 @@ nav {
 
 @media (max-width: 900px) {
   nav {
+    position: fixed;
+    z-index: 999;
     .nav-center {
       display: block;
       width: 100%;

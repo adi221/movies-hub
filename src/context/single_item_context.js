@@ -24,6 +24,7 @@ const SingleItemProvider = ({ children }) => {
   const [person, setPerson] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [showShareBar, setShowShareBar] = useState(false);
+  const [error, setError] = useState(false);
 
   const fetchMovie = async id => {
     setIsLoading(true);
@@ -42,7 +43,7 @@ const SingleItemProvider = ({ children }) => {
         reviews: reviews.results,
       });
     } catch (error) {
-      console.log(error);
+      setError(true);
     }
 
     setIsLoading(false);
@@ -112,6 +113,7 @@ const SingleItemProvider = ({ children }) => {
         setIsLoading,
         showShareBar,
         setShowShareBar,
+        error,
       }}
     >
       {children}

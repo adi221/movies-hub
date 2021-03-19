@@ -26,7 +26,7 @@ const SearchProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const fetchData = async () => {
-    if (state.query === '') return;
+    if (state.query.trim() === '') return;
     setLoadingTrue();
 
     try {

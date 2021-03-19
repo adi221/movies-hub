@@ -5,11 +5,12 @@ import { useHomeContext } from '../../context/home_context';
 import { SingleItemHeader } from '../../components';
 import './SingleItem.scss';
 import { Carousel, TrailersCarousel, Loading } from '../../components';
+import Error from '../Error/Error';
 import { IoIosArrowForward } from 'react-icons/io';
 
 const SingleItem = () => {
   const { type, id } = useParams();
-  const { fetchData, item, isLoading, person } = useSingleItemContext();
+  const { fetchData, item, isLoading, person, error } = useSingleItemContext();
   const { loading } = useHomeContext();
 
   console.log(type, id);
@@ -18,6 +19,10 @@ const SingleItem = () => {
     fetchData(id, type);
     //eslint-disable-next-line
   }, [id, type]);
+
+  if (error) {
+    return <Error />;
+  }
 
   if (loading || isLoading || (type === 'people' && !person.details)) {
     return <Loading />;

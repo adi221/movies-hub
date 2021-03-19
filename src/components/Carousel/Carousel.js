@@ -11,7 +11,7 @@ import 'swiper/components/scrollbar/scrollbar.scss';
 const Carousel = ({ title, items, type }) => {
   SwiperCore.use([Navigation, Pagination, Scrollbar]);
   return (
-    <div className='carousel-container'>
+    <div className='carousel-container '>
       <div className='swiper-container'>
         <div className='swiper-container__title'>{title}</div>
         <Swiper
@@ -31,7 +31,7 @@ const Carousel = ({ title, items, type }) => {
               slidesPerView: 3,
             },
             565: {
-              slidesPerView: 2,
+              slidesPerView: 3,
             },
             450: {
               slidesPerView: 2,

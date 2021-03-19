@@ -13,3 +13,4 @@ export const SET_DISCOVER_TV = 'SET_DISCOVER_TV';
 export const SET_DISCOVER_MOVIES = 'SET_DISCOVER_MOVIES';
 export const UPDATE_SORT = 'UPDATE_SORT';
 export const SET_PAGE_1 = 'SET_PAGE_1';
+export const SET_ERROR = 'SET_ERROR';
