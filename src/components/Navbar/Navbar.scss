@@ -2,7 +2,7 @@
 @import '../../styles/animations';
 
 nav {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -136,7 +136,6 @@ nav {
 
 @media (max-width: 900px) {
   nav {
-    position: fixed;
     z-index: 999;
     .nav-center {
       display: block;
