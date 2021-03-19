@@ -10,6 +10,7 @@ import Loading from './Loading/Loading';
 import PaginationButtons from './PaginationButtons/PaginationButtons';
 import Sort from './Sort/Sort';
 import ScrollTopArrow from './ScrollTopArrow/ScrollTopArrow';
+import ShareBar from './ShareBar/ShareBar';
 export {
   Carousel,
   Navbar,
@@ -23,4 +24,5 @@ export {
   PaginationButtons,
   Sort,
   ScrollTopArrow,
+  ShareBar,
 };

@@ -33,8 +33,8 @@ const Carousel = ({ title, items, type }) => {
             565: {
               slidesPerView: 2,
             },
-            545: {
-              slidesPerView: 1,
+            450: {
+              slidesPerView: 2,
             },
           }}
           className='swiper-wrapper'

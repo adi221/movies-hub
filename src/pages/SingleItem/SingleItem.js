@@ -32,7 +32,11 @@ const SingleItem = () => {
             type === 'people' ? 'biography' : 'summary'
           }`}</h2>
           <p>{`${
-            type === 'people' ? person.details.biography : item.details.overview
+            type === 'people'
+              ? person.details.biography
+              : item.details.overview
+              ? item.details.overview
+              : 'No Summary'
           }`}</p>
           <hr />
         </div>

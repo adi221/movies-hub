@@ -82,7 +82,6 @@ const HomeProvider = ({ children }) => {
   };
 
   const setTvView = () => {
-    console.log('Works Baby');
     dispatch({ type: SET_TV_VIEW });
   };
 

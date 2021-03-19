@@ -6,24 +6,20 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { FaShare } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 import Stars from '../../components/Stars/Stars';
-import { Loading } from '../../components';
+import { Loading, ShareBar } from '../../components';
 
 const SingleItemHeader = ({ item, showPeople }) => {
   const {
     config: { secure_base_url },
   } = useHomeContext();
-  const { person, isLoading } = useSingleItemContext();
+  const {
+    person,
+    isLoading,
+    showShareBar,
+    setShowShareBar,
+  } = useSingleItemContext();
   let name, title, image, status, lang, bg, rating;
-
-  // let {
-  //   backdrop_path: bg,
-  //   original_language: lang,
-  //   title,
-  //   name,
-  //   poster_path: image,
-  //   vote_average: rating,
-  //   status,
-  // } = item.details;
+  const currentUrl = window.location.href;
 
   if (item.details) {
     bg = item.details.backdrop_path;
@@ -70,11 +66,14 @@ const SingleItemHeader = ({ item, showPeople }) => {
       }}
     >
       <div className='single-item-header__center'>
+        {showShareBar && (
+          <ShareBar url={currentUrl} title={title ? title : name} />
+        )}
         <div className='single-item-header-nav'>
           <button onClick={() => history.goBack()}>
             <IoIosArrowBack className='single-item-header-nav__icon' />
           </button>
-          <button>
+          <button onClick={() => setShowShareBar(!showShareBar)}>
             <FaShare className='single-item-header-nav__icon' />
           </button>
         </div>
@@ -104,9 +103,12 @@ const SingleItemHeader = ({ item, showPeople }) => {
 
 export default SingleItemHeader;
 
-// style={{
-//   background: `linear-gradient(
-// rgba(0, 0, 0, 0.6),
-// rgba(0, 0, 0, 0.6)
-// ) , #fff url(${secure_base_url}${'w1280'}${bg}) center top no-repeat`,
-// }}
+// let {
+//   backdrop_path: bg,
+//   original_language: lang,
+//   title,
+//   name,
+//   poster_path: image,
+//   vote_average: rating,
+//   status,
+// } = item.details;

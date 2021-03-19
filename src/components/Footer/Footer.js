@@ -5,7 +5,9 @@ import logo from './images/TMDBLogo.svg';
 const Footer = () => {
   return (
     <footer className='footer'>
-      <img src={logo} alt='tmdb' />
+      <div className='footer-center'>
+        <img src={logo} alt='tmdb' />
+      </div>
       <h2>Copyright &copy; {new Date().getFullYear()}</h2>
     </footer>
   );

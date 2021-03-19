@@ -24,6 +24,7 @@ nav {
     grid-template-columns: 1fr 25rem;
     justify-content: center;
     align-items: center;
+    transition: $transition;
   }
 
   .nav-header {
@@ -50,6 +51,7 @@ nav {
     &__form {
       justify-self: center;
       position: relative;
+      width: 30rem;
       &-input {
         background-color: transparent;
         border: 2px solid #7378c5;
@@ -58,7 +60,7 @@ nav {
         font-family: inherit;
         font-size: 1.7rem;
         padding: 1rem 2rem;
-        width: 30rem;
+        width: 100%;
         outline: none;
         color: #8e8e8e;
       }
@@ -74,10 +76,22 @@ nav {
         top: 1.2rem;
         transition: $transition;
 
-        &:hover {
+        &:hover,
+        &:active {
           transform: scale(1.03);
         }
       }
+    }
+
+    &__toggle-btn {
+      display: none;
+      border: none;
+      color: #7378c5;
+      font-size: 3rem;
+      background: transparent;
+      cursor: pointer;
+      margin-top: 1rem;
+      outline: none;
     }
   }
 
@@ -109,6 +123,60 @@ nav {
       margin-right: 0.5rem;
       font-size: 1.9rem;
       vertical-align: baseline;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  nav {
+    .nav-center {
+      display: block;
+      width: 100%;
+    }
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      width: 96%;
+      align-items: center;
+      padding-left: 2%;
+
+      .hide {
+        display: none;
+      }
+
+      &__form {
+        max-width: $max-width;
+        align-self: center;
+      }
+      &__toggle-btn {
+        display: block;
+      }
+    }
+    .links {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      height: auto;
+      background: #1c262b;
+      width: 100%;
+      z-index: 1000;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      transition: all 0.5s;
+
+      a {
+        padding: 2rem 0;
+        background-color: #1c262b;
+
+        &:hover {
+          border-bottom: 1px solid transparent;
+        }
+      }
+
+      &__hide {
+        bottom: -10rem;
+      }
     }
   }
 }

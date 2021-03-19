@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Home, SingleItem, SearchPage, Discover } from './pages';
+import { Home, SingleItem, SearchPage, Discover, Error } from './pages';
 // import { ScrollTopArrow } from './components';
 
 function App() {
@@ -10,12 +10,15 @@ function App() {
         <Route exact path='/'>
           <Home />
         </Route>
-        <Route path='/details/:type/:id' children={<SingleItem />} />
-        <Route path='/search-results'>
+        <Route exact path='/details/:type/:id' children={<SingleItem />} />
+        <Route exact path='/search-results'>
           <SearchPage />
         </Route>
-        <Route path='/dicover'>
+        <Route exact path='/dicover'>
           <Discover />
+        </Route>
+        <Route path='*'>
+          <Error />
         </Route>
       </Switch>
     </Router>

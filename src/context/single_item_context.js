@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import {
   singleMovieForeword,
@@ -23,6 +23,7 @@ const SingleItemProvider = ({ children }) => {
   const [item, setItem] = useState({});
   const [person, setPerson] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [showShareBar, setShowShareBar] = useState(false);
 
   const fetchMovie = async id => {
     setIsLoading(true);
@@ -103,7 +104,15 @@ const SingleItemProvider = ({ children }) => {
 
   return (
     <SingleItemContext.Provider
-      value={{ fetchData, item, isLoading, person, setIsLoading }}
+      value={{
+        fetchData,
+        item,
+        isLoading,
+        person,
+        setIsLoading,
+        showShareBar,
+        setShowShareBar,
+      }}
     >
       {children}
     </SingleItemContext.Provider>

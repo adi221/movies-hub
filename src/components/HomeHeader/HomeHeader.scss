@@ -2,7 +2,7 @@
 
 .home-header-container {
   overflow: hidden;
-  max-height: 93vh;
+  height: 94vh;
   margin-bottom: 2.5rem;
 
   .swiper-wrapper {
@@ -15,7 +15,7 @@
       display: flex;
       font-size: 18px;
       justify-content: center;
-      height: 93vh;
+      height: 100%;
       width: 100%;
       position: relative;
       text-align: center;
@@ -42,5 +42,17 @@
         height: 100%;
       }
     }
+  }
+}
+
+@media (max-width: 950px) {
+  .home-header-container {
+    height: 60rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-header-container {
+    height: 50rem;
   }
 }
