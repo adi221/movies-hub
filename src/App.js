@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home, SingleItem, SearchPage, Discover, Error } from './pages';
-// import { ScrollTopArrow } from './components';
+import { Footer } from './components';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Error />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

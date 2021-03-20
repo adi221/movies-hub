@@ -15,6 +15,7 @@
     letter-spacing: 0.4rem;
     margin: 2rem 0 0;
     text-transform: uppercase;
+    padding: 0 1rem;
   }
 
   &__underline {
@@ -30,9 +31,17 @@
     max-width: $max-width;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
     justify-content: center;
     justify-items: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .search-page-container {
+    &__main {
+      width: 98vw;
+    }
   }
 }

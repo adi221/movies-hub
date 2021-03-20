@@ -66,7 +66,6 @@ const Home = () => {
       <HomeHeader />
       <ViewButtons clickedMovies={setMoviesView} clickedTv={setTvView} />
       <div className='home-container__main'>{mainView}</div>
-      <Footer />
     </div>
   );
 };

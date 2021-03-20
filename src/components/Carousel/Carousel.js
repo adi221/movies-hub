@@ -15,8 +15,8 @@ const Carousel = ({ title, items, type }) => {
       <div className='swiper-container'>
         <div className='swiper-container__title'>{title}</div>
         <Swiper
-          spaceBetween={10}
-          slidesPerView={6}
+          spaceBetween={12}
+          slidesPerView={2}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
