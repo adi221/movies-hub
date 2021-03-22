@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { useSingleItemContext } from '../../context/single_item_context';
 import { useHomeContext } from '../../context/home_context';
 import { SingleItemHeader } from '../../components';
@@ -13,11 +13,9 @@ const SingleItem = () => {
   const { fetchData, item, isLoading, person, error } = useSingleItemContext();
   const { loading } = useHomeContext();
 
-  console.log(type, id);
-
   useEffect(() => {
     fetchData(id, type);
-    //eslint-disable-next-line
+    // eslint-disable-next-line
   }, [id, type]);
 
   if (error) {

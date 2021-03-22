@@ -14,15 +14,15 @@ const TrailersCarousel = ({ title, items }) => {
         <div className='swiper-container__title'>{title}</div>
         <Swiper
           spaceBetween={10}
-          slidesPerView={3}
+          slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           breakpoints={{
-            800: {
+            930: {
               slidesPerView: 2,
             },
-            600: {
+            920: {
               slidesPerView: 1,
             },
           }}

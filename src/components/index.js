@@ -11,6 +11,7 @@ import PaginationButtons from './PaginationButtons/PaginationButtons';
 import Sort from './Sort/Sort';
 import ScrollTopArrow from './ScrollTopArrow/ScrollTopArrow';
 import ShareBar from './ShareBar/ShareBar';
+import ScrollToTop from './ScrollToTop/ScrollToTop'
 export {
   Carousel,
   Navbar,
@@ -25,4 +26,5 @@ export {
   Sort,
   ScrollTopArrow,
   ShareBar,
+  ScrollToTop
 };

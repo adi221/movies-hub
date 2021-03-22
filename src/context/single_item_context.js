@@ -35,7 +35,9 @@ const SingleItemProvider = ({ children }) => {
         getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieTrailers}`),
         getJSONSingleItem(`${singleMovieForeword}${id}${singleMovieReviews}`),
       ]);
+
       const [details, credits, trailers, reviews] = data;
+      if (details.success === false) return setError(true);
       setItem({
         details,
         credits: credits.cast,
@@ -43,7 +45,7 @@ const SingleItemProvider = ({ children }) => {
         reviews: reviews.results,
       });
     } catch (error) {
-      setError(true);
+      console.log(error);
     }
 
     setIsLoading(false);
