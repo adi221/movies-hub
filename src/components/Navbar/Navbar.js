@@ -26,7 +26,7 @@ const Navbar = () => {
       });
       document.querySelector('.nav-header__title').classList.add('fadeInLeft');
       document.querySelector('.nav-header__form').classList.add('bounce');
-    }, 0);
+    }, 200);
   }, []);
 
   return (
@@ -71,7 +71,7 @@ const Navbar = () => {
               Home
             </li>
           </Link>
-          <Link to='/dicover'>
+          <Link to='/discover'>
             <li>
               <MdExplore />
               Discover

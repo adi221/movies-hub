@@ -6,7 +6,6 @@ import {
   HomeHeader,
   Carousel,
   Loading,
-  Footer,
 } from '../../components';
 import './Home.scss';
 
