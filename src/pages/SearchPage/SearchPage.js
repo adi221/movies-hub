@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSearchContext } from '../../context/search_context';
 import './SearchPage.scss';
-import { useParams } from 'react-router-dom';
 import {
   Loading,
   Navbar,

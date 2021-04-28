@@ -45,6 +45,7 @@ const SingleItemProvider = ({ children }) => {
         reviews: reviews.results,
       });
     } catch (error) {
+      setError(true);
       console.log(error);
     }
 
@@ -68,6 +69,7 @@ const SingleItemProvider = ({ children }) => {
         reviews: reviews.results,
       });
     } catch (error) {
+      setError(true);
       console.log(error);
     }
     setIsLoading(false);
@@ -88,6 +90,7 @@ const SingleItemProvider = ({ children }) => {
         cast: credits.cast.slice(0, 25),
       });
     } catch (error) {
+      setError(true);
       console.log(error);
     }
 
